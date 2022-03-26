@@ -5,6 +5,7 @@
     <Title>Forestry Versioning Component</Title>
     <Description>Provides your application with build metadata from CI/CD.</Description>
     <Authors>Steven Benitez</Authors>
+    <Company>Slash Pine Tech</Company>
     <PackageTags>build;MSBuild;version</PackageTags>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
