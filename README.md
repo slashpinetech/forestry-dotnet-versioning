@@ -1,4 +1,4 @@
-[![MIT License](https://img.shields.io/github/license/slashpinetech/forestry-dotnet?color=1F3B2B&style=flat-square)](https://github.com/slashpinetech/forestry-dotnet/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/github/license/slashpinetech/forestry-dotnet-versioning?color=1F3B2B&style=flat-square)](https://github.com/slashpinetech/forestry-dotnet-versioning/blob/main/LICENSE)
 
 # Forestry .NET -- Versioning
 
