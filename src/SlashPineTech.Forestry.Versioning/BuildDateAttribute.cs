@@ -7,12 +7,7 @@ namespace SlashPineTech.Forestry.Versioning;
 /// the UTC date and time the assembly was built.
 /// </summary>
 [AttributeUsage(AttributeTargets.Assembly)]
-public class BuildDateAttribute : Attribute
+public class BuildDateAttribute(string value) : Attribute
 {
-    public BuildDateAttribute(string value)
-    {
-        DateTime = DateTime.Parse(value, null, System.Globalization.DateTimeStyles.RoundtripKind);
-    }
-
-    public DateTime DateTime { get; }
+    public DateTime DateTime { get; } = DateTime.Parse(value, null, System.Globalization.DateTimeStyles.RoundtripKind);
 }

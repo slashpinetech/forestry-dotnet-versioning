@@ -7,12 +7,7 @@ namespace SlashPineTech.Forestry.Versioning;
 /// the VCS branch that the assembly was built from.
 /// </summary>
 [AttributeUsage(AttributeTargets.Assembly)]
-public class SourceBranchAttribute : Attribute
+public class SourceBranchAttribute(string branch) : Attribute
 {
-    public SourceBranchAttribute(string branch)
-    {
-        Branch = branch;
-    }
-
-    public string Branch { get; }
+    public string Branch { get; } = branch;
 }

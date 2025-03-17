@@ -5,10 +5,18 @@
 Forestry .NET is a set of open-source libraries for building modern web
 applications using ASP.NET Core.
 
-This versioning package adds support for embedding build-time metadata into an
-assembly for use when the application is running.
+This versioning package adds support for embedding build-time version metadata
+into an assembly for use when the application is running.
 
 ## Usage
+
+### Excluding Source Revision from Version Number
+
+As of .NET 8, the source revision is included in the informational version by default. You can disable this with the following in your .csproj:
+
+```xml
+<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+```
 
 ### Configuring your .csproj
 
@@ -45,15 +53,28 @@ dotnet build -p:BuildNumber=$GITHUB_RUN_NUMBER -p:Branch=$GITHUB_REF -p:Commit=$
 
 ### Startup
 
-Use the `BuildMetadataProvider` to register a singleton instance of `BuildMetadata`
-with all of the metadata that was compiled into the assembly in the prior step.
+Use the `AddVersionMetadata` extension method to register a singleton instance
+of `VersionMetadata` with all the metadata that was compiled into the assembly
+in the prior step.
 
 ```c#
-services.AddSingleton(_ => new BuildMetadataProvider(typeof(Startup).Assembly).Provide());
+services.AddVersionMetadata(typeof(Startup).Assembly);
+```
+
+To map a `/version` endpoint that will return this information as JSON, add the
+following to `Startup.Configure`:
+
+```c#
+app.UseEndpoints(endpoints =>
+{
+    ...
+
+    endpoints.MapVersion("/version").AllowAnonymous();
+});
 ```
 
 ### Wrapping up
 
-Now you can inject `BuildMetadata` anywhere you need to access this information,
-such as a `/version` endpoint that will return this as JSON or an MVC or Razor Page
-that will display this to administrators.
+Now you can inject `VersionMetadata` anywhere you need to access this information,
+such as a `/version` endpoint that will return this as JSON or an MVC Action
+Method or Razor Page that will display this to administrators.

@@ -9,7 +9,7 @@ namespace SlashPineTech.Forestry.Versioning.Tests;
 
 /// <summary>
 /// Constants that are used in the build metadata above and then in the
-/// assertions in <see cref="BuildMetadataProviderTests"/>.
+/// assertions in <see cref="VersionMetadataProviderTests"/>.
 /// </summary>
 public static class MetadataConstants
 {

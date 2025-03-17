@@ -7,12 +7,7 @@ namespace SlashPineTech.Forestry.Versioning;
 /// the VCS commit that the assembly was built from.
 /// </summary>
 [AttributeUsage(AttributeTargets.Assembly)]
-public class SourceCommitAttribute : Attribute
+public class SourceCommitAttribute(string commit) : Attribute
 {
-    public SourceCommitAttribute(string commit)
-    {
-        Commit = commit;
-    }
-
-    public string Commit { get; }
+    public string Commit { get; } = commit;
 }

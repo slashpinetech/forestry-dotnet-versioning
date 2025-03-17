@@ -5,14 +5,14 @@ using Xunit;
 namespace SlashPineTech.Forestry.Versioning.Tests;
 
 /// <summary>
-/// Unit tests for <see cref="BuildMetadataProvider"/>.
+/// Unit tests for <see cref="VersionMetadataProvider"/>.
 /// </summary>
-public class BuildMetadataProviderTests
+public class VersionMetadataProviderTests
 {
     [Fact]
-    public void BuildMetadataProvider_Provide_Returns_BuildMetadata_With_Values_From_Assembly_Attributes()
+    public void VersionMetadataProvider_Provide_Returns_VersionMetadata_With_Values_From_Assembly_Attributes()
     {
-        var provider = new BuildMetadataProvider(Assembly.GetExecutingAssembly());
+        var provider = new VersionMetadataProvider(Assembly.GetExecutingAssembly());
         var metadata = provider.Provide();
 
         metadata.Branch.ShouldBe(MetadataConstants.Branch);

@@ -3,9 +3,9 @@ using System;
 namespace SlashPineTech.Forestry.Versioning;
 
 /// <summary>
-/// Metadata describing a build of an application.
+/// Version metadata describing a build of an application.
 /// </summary>
-public record BuildMetadata(
+public record VersionMetadata(
     string? Branch,
     string? BuildNumber,
     DateTime BuildTime,
